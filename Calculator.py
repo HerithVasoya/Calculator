@@ -74,12 +74,7 @@ def calculate(num1, num2, operation):
     elif (operation == 8): #Percentages
         ans = num1 * num2
         print(str(num2 * 100), "% of", str(num1), "=", str(ans))
-    
-    
-
-#calls the calculate function
-#calculate(num1, num2, operation)
-
+        
 while (option == "yes"):
     setup()
     option = input("Do you want to enter another calculation yes/no: ")
