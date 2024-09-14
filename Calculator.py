@@ -11,6 +11,7 @@ def white_space():
 
 
 def setup():
+
     white_space()
     print("---<<<NEXT CALCULATION>>>---")
 
@@ -23,6 +24,8 @@ def setup():
     white_space()
     print("--Choose the Operation--")
     operation = int(input("Type the number of operation you want to do: "))
+    while operation > 13 or operation < 1:
+        operation = int(input("Type the number of operation you want to do: "))
 
     white_space()
     #Adds The number inputs
@@ -88,19 +91,19 @@ def calculate(num, num1, num2, operation):
         print(str(num2 * 100), "% of", str(num1), "=", str(ans))
     elif (operation == 9): #Sine
         ans = math.sin(num)
-        print("sin(" + str(num) + ") =", ans)
+        print("sin(" + str(num) + ") =", str(ans))
     elif (operation == 10): #Cosine
         ans = math.cos(num)
-        print("cos(" + str(num) + ") =", ans)
+        print("cos(" + str(num) + ") =", str(ans))
     elif (operation == 11): #Tangent
         ans = math.tan(num)
-        print("tan(" + str(num) + ") =", ans)
+        print("tan(" + str(num) + ") =", str(ans))
     elif (operation == 12): #Radian
         ans = math.radians(num)
-        print("rad(" + str(num) + ") =", ans)
+        print("rad(" + str(num) + ") =", str(ans))
     elif (operation == 13): #Logarithm
         ans = math.log10(num)
-        print("log(" + str(num) + ") =", ans)
+        print("log(" + str(num) + ") =", str(ans))
         
 while (option[0] == "y"):
     setup()
