@@ -48,6 +48,9 @@ def setup():
     else:
         num1 = int(input("Pick a number: "))
         num2 = int(input("Pick another number: "))
+    
+    if operation not in [9, 10, 11, 12, 13]:
+        num = 0
 
     white_space()
     #calculate function call
