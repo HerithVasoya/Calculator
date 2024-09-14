@@ -1,7 +1,10 @@
+#imports
+import math
+
 option = "yes"
 
 #Operations array
-operations = ["Addition", "Subtraction", "Multiplication", "Division", "Modulus", "Power", "Power root", "Percentage"]
+operations = ["Addition", "Subtraction", "Multiplication", "Division", "Modulus", "Power", "Power root", "Percentage", "Sine", "Cosine", "Tangent", "Radian", "Logarithm"]
 
 def white_space():
     print(" ")
@@ -27,15 +30,21 @@ def setup():
     if (operation == 6 or operation == 7 or operation == 8):
         num1 = int(input("Pick the base number: "))
         if (operation == 6):
-            num2 = int(input("Pick a number to power it by: "))
+            num2 = float(input("Pick a number to power it by: "))
         elif(operation == 7):
-             num2 = int(input("Pick a number to root it by: "))
+             num2 = float(input("Pick a number to root it by: "))
         else:
             num2 = int(input("Pick the percentage you want to change it by, NO % AT THE END: "))
             num2 /= 100
 
             if (abs(num2) < 1):
                 num2 += 1
+    
+    elif (operation in [9, 10, 11, 12, 13]):
+        num = int(input("Pick the base number: "))
+        num1 = 0
+        num2 = 0
+
     else:
         num1 = int(input("Pick a number: "))
         num2 = int(input("Pick another number: "))
@@ -43,13 +52,13 @@ def setup():
     white_space()
     #calculate function call
     print("--Calculation--")
-    calculate(num1, num2, operation)
+    calculate(num, num1, num2, operation)
     white_space()
 
 
 
 #calculate function
-def calculate(num1, num2, operation):
+def calculate(num, num1, num2, operation):
     if (operation == 1): #Addition
         ans = num1 + num2
         print(str(num1), "+", str(num2), "=", str(ans))
@@ -74,7 +83,25 @@ def calculate(num1, num2, operation):
     elif (operation == 8): #Percentages
         ans = num1 * num2
         print(str(num2 * 100), "% of", str(num1), "=", str(ans))
+    elif (operation == 9): #Sine
+        ans = math.sin(num)
+        print("sin(" + str(num) + ") =", ans)
+    elif (operation == 10): #Cosine
+        ans = math.cos(num)
+        print("cos(" + str(num) + ") =", ans)
+    elif (operation == 11): #Tangent
+        ans = math.tan(num)
+        print("tan(" + str(num) + ") =", ans)
+    elif (operation == 12): #Radian
+        ans = math.radians(num)
+        print("rad(" + str(num) + ") =", ans)
+    elif (operation == 13): #Logarithm
+        ans = math.log10(num)
+        print("log(" + str(num) + ") =", ans)
         
-while (option == "yes"):
+while (option[0] == "y"):
     setup()
-    option = input("Do you want to enter another calculation yes/no: ")
+    option = input("Do you want to enter another calculation yes/no: ").lower()
+
+    while option not in ["yes","no", "y", "n"]:
+        option = input("Do you want to enter another calculation yes/no: ").lower()
